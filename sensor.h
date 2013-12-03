@@ -10,4 +10,6 @@ void checkLeftSensor();
 
 void getInputFromSensor();
 
+void checkRightSensor();
+
 #endif

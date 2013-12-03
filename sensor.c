@@ -15,6 +15,11 @@ void checkLeftSensor(){
 	ADC10AE0 |= BIT3;
 }
 
+void checkRightSensor(){
+	ADC10CTL1 = INCH_4;
+	ADC10AE0 |= BIT4;
+}
+
 void getInputFromSensor(){
 	ADC10CTL0 |= ENC + ADC10SC;
 	_delay_cycles(100);
