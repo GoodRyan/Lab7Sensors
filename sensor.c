@@ -1,8 +1,8 @@
 #include "sensor.h"
 
 void initializeLedPins(){
-	P1DIR |= 0x01;
-	P1DIR |= 0x02;
+	P1DIR |= BIT0;
+	P1DIR |= BIT6;
 }
 
 void initializeADC10(){
@@ -13,11 +13,13 @@ void initializeADC10(){
 void checkLeftSensor(){
 	ADC10CTL1 = INCH_3;
 	ADC10AE0 |= BIT3;
+	__bis_SR_register(CPUOFF + GIE);
 }
 
 void checkRightSensor(){
 	ADC10CTL1 = INCH_4;
 	ADC10AE0 |= BIT4;
+	__bis_SR_register(CPUOFF + GIE);
 }
 
 void getInputFromSensor(){

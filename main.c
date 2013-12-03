@@ -7,12 +7,27 @@
 int main(void) {
     WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
 
-    initializeADC10();
+   // initializeADC10();
 	
     initializeLedPins();
+    P1OUT |= 0x01;
+
+    while(1){}
 
     for(;;){
-    	//Change the LED light being checked.
+    	checkLeftSensor();
+    	if (ADC10MEM < 0x1FF)
+    		P1OUT &= ~BIT0;
+    	else
+    		P1OUT |= BIT0;
+
+    	_delay_cycles(100);
+
+    	checkRightSensor();
+    	if (ADC10MEM < 0x1FF)
+    		P1OUT &= ~BIT6;
+    	else
+    		P1OUT |= BIT6;
     }
 
 }
