@@ -22,5 +22,6 @@ int main(void) {
 #pragma vector=ADC10_VECTOR
 __interrupt void ADC10_ISR(void)
 {
+  getInputFromSensor();
   __bic_SR_register_on_exit(CPUOFF);
 }

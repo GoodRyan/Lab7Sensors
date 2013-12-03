@@ -6,4 +6,8 @@ void initializeLedPins();
 
 void initializeADC10();
 
+void checkLeftSensor();
+
+void getInputFromSensor();
+
 #endif
