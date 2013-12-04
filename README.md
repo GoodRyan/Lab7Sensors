@@ -1,4 +1,4 @@
-RobotSensorLibrary
+Lab7
 ==================
 
 A library that allows for easy interfacing with the robot sensors.
