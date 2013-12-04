@@ -12,7 +12,9 @@ int main(void) {
     initializeLedPins();
 
     for(;;){
+
     	checkLeftSensor();
+
     	if (ADC10MEM < 0x2FF)
     		P1OUT &= ~BIT0;
     	else
@@ -21,18 +23,15 @@ int main(void) {
     	_delay_cycles(100);
 
     	checkRightSensor();
+
     	if (ADC10MEM < 0x2FF)
     		P1OUT &= ~BIT6;
     	else
     		P1OUT |= BIT6;
+
     }
 
 }
 
 
-// ADC10 interrupt service routine
-#pragma vector=ADC10_VECTOR
-__interrupt void ADC10_ISR(void)
-{
-  __bic_SR_register_on_exit(CPUOFF);
-}
+
