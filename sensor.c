@@ -11,19 +11,20 @@ void initializeADC10(){
 }
 
 void checkLeftSensor(){
+	ADC10CTL0 &= ~ENC;
 	ADC10CTL1 = INCH_3;
 	ADC10AE0 |= BIT3;
+	ADC10CTL0 |= ENC + ADC10SC;
+
 	__bis_SR_register(CPUOFF + GIE);
 }
 
 void checkRightSensor(){
+	ADC10CTL0 &= ~ENC;
 	ADC10CTL1 = INCH_4;
 	ADC10AE0 |= BIT4;
-	__bis_SR_register(CPUOFF + GIE);
-}
-
-void getInputFromSensor(){
 	ADC10CTL0 |= ENC + ADC10SC;
-	_delay_cycles(100);
-	ADC10CTL0 &= ~ENC;
+
+	__bis_SR_register(CPUOFF + GIE);
+
 }

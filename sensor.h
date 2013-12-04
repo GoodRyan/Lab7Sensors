@@ -8,8 +8,6 @@ void initializeADC10();
 
 void checkLeftSensor();
 
-void getInputFromSensor();
-
 void checkRightSensor();
 
 #endif
