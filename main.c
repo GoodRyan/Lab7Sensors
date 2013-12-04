@@ -24,7 +24,7 @@ int main(void) {
 
     	checkRightSensor();
 
-    	if (ADC10MEM < 0x2FF)
+    	if (ADC10MEM < 0x23F)
     		P1OUT &= ~BIT6;
     	else
     		P1OUT |= BIT6;
